@@ -2,6 +2,8 @@
 
 require_once './core/Bash/execHelpers.php';
 
+require_once './core/common.php';
+
 class BashHandler
 {
     private $argv;
@@ -28,5 +30,7 @@ class BashHandler
                 # code...
                 break;
         }
+
+        new Autoload();
     }
 }
