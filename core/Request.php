@@ -87,4 +87,15 @@ class Request
         }
         return (object) $request;
     }
+
+    /**
+     * check request is xmlhttprequest
+     *
+     * @param array $input
+     * @return array string input value
+     */
+    public static function xmlhttprequest()
+    {
+        return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest';
+    }
 }
