@@ -25,7 +25,7 @@ class Autoload
             'core/Route.php',
             'routes/routes.php',
         ];
-        $this->server = 'macosx';
+        $this->server = 'linux';
     }
 
     /**
