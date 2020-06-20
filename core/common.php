@@ -33,3 +33,10 @@ if (!function_exists('view')) {
         return (new Core\Controller)->render($view, $data);
     }
 }
+
+if (!function_exists('redirect')) {
+    function redirect($url)
+    {
+        header('Location: ' . $url);
+    }
+}

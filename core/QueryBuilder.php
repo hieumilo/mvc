@@ -13,6 +13,121 @@ class QueryBuilder
 
     public $pdo;
 
+    /**
+     * The columns that should be returned.
+     *
+     * @var array
+     */
+    private $columns;
+
+    /**
+     * The table which the query is targeting.
+     *
+     * @var string
+     */
+    private $table;
+
+    /**
+     * Indicates if the query returns distinct results.
+     *
+     * @var bool
+     */
+    private $distinct = false;
+
+    /**
+     * The table joins for the query.
+     *
+     * @var array
+     */
+    private $joins;
+
+    /**
+     * The where constraints for the query.
+     *
+     * @var array
+     */
+    private $wheres;
+
+    /**
+     * The where constraints for the query.
+     *
+     * @var array
+     */
+    private $wherein;
+
+    /**
+     * The groupings for the query.
+     *
+     * @var array
+     */
+    private $groups;
+
+    /**
+     * The having constraints for the query.
+     *
+     * @var array
+     */
+    private $having;
+
+    /**
+     * The orderings for the query.
+     *
+     * @var array
+     */
+    private $orders;
+
+    /**
+     * The maximum number of records to return.
+     *
+     * @var int
+     */
+    private $limit;
+
+    /**
+     * The number of records to skip.
+     *
+     * @var int
+     */
+    private $offset;
+
+    /**
+     * Take 1 record
+     *
+     * @var b0olean
+     */
+    private $find = false;
+
+    /**
+     * Take 1 record
+     *
+     * @var boolean
+     */
+    private $first = false;
+
+    /**
+     * Fails throw Exception
+     */
+    private $isThrow = false;
+
+    /**
+     * Create a new query builder instance.
+     *
+     * @param  ConnectionInterface  $this->table
+     * @return void
+     */
+
+    /**
+     * Compile instance
+     */
+    private $compile;
+
+    public function __construct($table)
+    {
+        $this->calledFromModel = app()->callModel;
+        $this->table = $table;
+        $this->compile = new Compile;
+    }
+
     public function getConnection()
     {
         try {
@@ -22,7 +137,7 @@ class QueryBuilder
                 'port' => '3306',
                 'database' => 'mvc',
                 'username' => 'root',
-                'password' => 'password',
+                'password' => 'admin123',
             ];
             $connection = $this->config['driver'];
             $host = $this->config['host'];
@@ -511,120 +626,6 @@ class QueryBuilder
     private static function calledModelInstance()
     {
         return self::getCalledModelInstance();
-    }
-    /**
-     * The columns that should be returned.
-     *
-     * @var array
-     */
-    private $columns;
-
-    /**
-     * The table which the query is targeting.
-     *
-     * @var string
-     */
-    private $table;
-
-    /**
-     * Indicates if the query returns distinct results.
-     *
-     * @var bool
-     */
-    private $distinct = false;
-
-    /**
-     * The table joins for the query.
-     *
-     * @var array
-     */
-    private $joins;
-
-    /**
-     * The where constraints for the query.
-     *
-     * @var array
-     */
-    private $wheres;
-
-    /**
-     * The where constraints for the query.
-     *
-     * @var array
-     */
-    private $wherein;
-
-    /**
-     * The groupings for the query.
-     *
-     * @var array
-     */
-    private $groups;
-
-    /**
-     * The having constraints for the query.
-     *
-     * @var array
-     */
-    private $having;
-
-    /**
-     * The orderings for the query.
-     *
-     * @var array
-     */
-    private $orders;
-
-    /**
-     * The maximum number of records to return.
-     *
-     * @var int
-     */
-    private $limit;
-
-    /**
-     * The number of records to skip.
-     *
-     * @var int
-     */
-    private $offset;
-
-    /**
-     * Take 1 record
-     *
-     * @var b0olean
-     */
-    private $find = false;
-
-    /**
-     * Take 1 record
-     *
-     * @var boolean
-     */
-    private $first = false;
-
-    /**
-     * Fails throw Exception
-     */
-    private $isThrow = false;
-
-    /**
-     * Create a new query builder instance.
-     *
-     * @param  ConnectionInterface  $this->table
-     * @return void
-     */
-
-    /**
-     * Compile instance
-     */
-    private $compile;
-
-    public function __construct($table)
-    {
-        $this->calledFromModel = app()->callModel;
-        $this->table = $table;
-        $this->compile = new Compile;
     }
 
     /**

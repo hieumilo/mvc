@@ -25,13 +25,13 @@ class Controller
     public function render($view, $data = null)
     {
         $root = $this->app_base;
-        $viewPath = $root . '/resources/views/' . $view . '.php';
+        $viewPath = $root . '/views/' . $view . '.php';
         if (is_array($data)) {
             extract($data, EXTR_PREFIX_SAME, "data");
         }
         $content = $this->getViewContent($view, $data);
         if($this->master) {
-            $layoutPath = $root . '/resources/views/' . str_replace('.', '/', $this->master) . '.php';
+            $layoutPath = $root . '/views/' . str_replace('.', '/', $this->master) . '.php';
             if (!file_exists($layoutPath)) {
                 throw new AppException("Layout $layoutPath not found");
             }
@@ -51,7 +51,7 @@ class Controller
     public function getViewContent($view, $data = null)
     {
         $root = $this->app_base;
-        $path = $root . '/resources/views/' . $view . '.php';
+        $path = $root . '/views/' . $view . '.php';
         if (is_array($data)) {
             extract($data, EXTR_PREFIX_SAME, "data");
         }
@@ -65,7 +65,7 @@ class Controller
     public function partialRender($view, $data = null)
     {
         $root = $this->app_base;
-        $path = $root . '/resources/views/' . $view . '.php';
+        $path = $root . '/views/' . $view . '.php';
         if (is_array($data)) {
             extract($data, EXTR_PREFIX_SAME, "data");
         }
