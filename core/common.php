@@ -40,3 +40,15 @@ if (!function_exists('redirect')) {
         header('Location: ' . $url);
     }
 }
+
+if (!function_exists('assets')) {
+    function assets($path)
+    {
+        if (php_sapi_name() == 'cli-server') {
+            return "/public/$path";
+        } else {
+            return $path;
+        }
+        throw new Exception("");
+    }
+}

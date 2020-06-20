@@ -12,7 +12,8 @@
   <body>
     <div class="container">
       <h1>welcome</h1>
-      <a href="/work">work</a>
+      <a href="/work" class="mr-3">work</a>
+      <a href="/calendar">calendar</a>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -58,4 +58,16 @@ class WorkController extends Controller {
 
         return redirect('/work');
     }
+
+    public function delete()
+    {
+        $id = Request::input('id');
+        $work = Work::where('id', '=', $id)->delete();
+        if (Request::xmlhttprequest()) {
+            echo json_encode(true);
+            die();
+        }
+
+        return redirect('/work');
+    }
 }

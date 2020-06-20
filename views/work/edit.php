@@ -14,7 +14,7 @@
     <body>
         <div class="container">
             <h1 class="text-center">Edit work</h1>
-            <form action="/work/<?= $work->id ?>/update" method="POST">
+            <form action="/work/<?= $work->id ?>/update" method="POST" id="update-form">
                 <div class="form-group">
                     <label for="name">Work name</label>
                     <input type="text" class="form-control" id="name" name="work_name" placeholder="Enter work name" value="<?= $work->work_name ?>">
@@ -39,6 +39,7 @@
                         <?php } ?>
                     </select>
                 </div>
+                <a href="/work" class="btn btn-primary">Back</a>
                 <button type="submit" class="btn btn-primary">Update</button>
             </form>
         </div>
@@ -48,14 +49,7 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         <script language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
         <script language="javascript" src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
-
-        <script type="text/javascript">
-            $(function () {
-                $('.datetime').datetimepicker({
-                    format: 'YYYY-MM-DD',
-                    defaultDate: new Date(),
-                });
-            });
-        </script>
+        <script language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+        <script language="javascript" src="<?= assets('assets/work.js') ?>"></script>
     </body>
 </html>

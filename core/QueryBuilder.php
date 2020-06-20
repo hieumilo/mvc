@@ -137,7 +137,7 @@ class QueryBuilder
                 'port' => '3306',
                 'database' => 'mvc',
                 'username' => 'root',
-                'password' => 'admin123',
+                'password' => '',
             ];
             $connection = $this->config['driver'];
             $host = $this->config['host'];
