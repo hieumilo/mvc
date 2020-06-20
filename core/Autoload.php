@@ -25,7 +25,7 @@ class Autoload
             'core/Route.php',
             'routes/routes.php',
         ];
-        $this->server = 'windows';
+        $this->server = 'macosx';
     }
 
     /**
@@ -109,7 +109,8 @@ class Autoload
         if (file_exists($fullUrl)) {
             require_once $fullUrl;
         } else {
-            throw new \Exception("File {$fullUrl} doesn't exists.");
+            echo "File {$fullUrl} doesn't exists.";
+            die();
         }
     }
 

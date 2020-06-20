@@ -26,3 +26,10 @@ if (!function_exists('dd')) {
         die;
     }
 }
+
+if (!function_exists('view')) {
+    function view($view, $data = null)
+    {
+        return (new Core\Controller)->render($view, $data);
+    }
+}

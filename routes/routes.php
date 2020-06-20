@@ -1,5 +1,3 @@
 <?php
 
-Route::get('/', function () {
-    dd('this is home page from route');
-});
+Route::get('/', 'HomeController@index');
