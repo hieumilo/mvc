@@ -36,7 +36,7 @@ class Compile
         if (explode('\\', $className)[0] === 'App') {
             $controller = $className;
         } else {
-            $controller = 'App\\Http\\Controllers\\' . $className;
+            $controller = 'Controller\\' . $className;
         }
         if (class_exists($controller)) {
             $ref = new \ReflectionMethod($controller, $methodName);
