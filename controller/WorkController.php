@@ -5,22 +5,37 @@ use Core\Controller;
 use Core\Request;
 use Models\Work;
 
-class WorkController extends Controller {
-
+class WorkController extends Controller
+{
+    /**
+     * Display a listing of the work.
+     *
+     * @return view
+     */
     public function index()
     {
-        $works = Work::get();
+        $works = Work::orderBy('id', 'desc')->get();
 
         return view('work/index', [
             'works' => $works,
         ]);
     }
 
+    /**
+     * Display create work form.
+     * 
+     * @return view
+     */
     public function create()
     {
         return view('work/create');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return redirect to work list
+     */
     public function store()
     {
         $data = (array) Request::only([
@@ -34,6 +49,13 @@ class WorkController extends Controller {
         return redirect('/work');
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int $id
+     *
+     * @return view
+     */
     public function edit($id)
     {
         $work = Work::where('id', '=', $id)->first();
@@ -46,6 +68,13 @@ class WorkController extends Controller {
         ]);
     }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  string $id
+     *
+     * @return redirect to work list
+     */
     public function update($id)
     {
         $data = (array) Request::only([
@@ -59,6 +88,13 @@ class WorkController extends Controller {
         return redirect('/work');
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int $id
+     *
+     * @return redirect to work list
+     */
     public function delete()
     {
         $id = Request::input('id');

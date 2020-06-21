@@ -132,12 +132,12 @@ class QueryBuilder
     {
         try {
             $this->config = [
-                'driver' => 'mysql',
-                'host' => '127.0.0.1',
-                'port' => '3306',
-                'database' => 'mvc',
-                'username' => 'root',
-                'password' => '',
+                'driver' => env('DB_CONNECTION'),
+                'host' => env('DB_HOST'),
+                'port' => env('DB_PORT'),
+                'database' => env('DB_DATABASE'),
+                'username' => env('DB_USERNAME'),
+                'password' => env('DB_PASSWORD'),
             ];
             $connection = $this->config['driver'];
             $host = $this->config['host'];

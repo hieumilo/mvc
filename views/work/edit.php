@@ -12,6 +12,17 @@
     <link rel="stylesheet" href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css">
     </head>
     <body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Todo List</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/work">Work</a></li>
+                    <li><a href="/calendar">Calendar</a></li>
+                </ul>
+            </div>
+        </nav>
         <div class="container">
             <h1 class="text-center">Edit work</h1>
             <form action="/work/<?= $work->id ?>/update" method="POST" id="update-form">
@@ -50,6 +61,6 @@
         <script language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
         <script language="javascript" src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
         <script language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
-        <script language="javascript" src="<?= assets('assets/work.js') ?>"></script>
+        <script language="javascript" src="<?= assets('assets/js/work.js') ?>"></script>
     </body>
 </html>
