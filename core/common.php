@@ -52,3 +52,26 @@ if (!function_exists('assets')) {
         throw new Exception("");
     }
 }
+
+if (!function_exists('env')) {
+    function env($variable)
+    {
+        $app_base = dirname(dirname(__FILE__));
+        $path = $app_base . '/.env';
+        if (!file_exists($path)) {
+            system("echo " . 'Missing .env file.');
+            exit;
+        }
+        $env = parse_ini_file($path);
+        foreach ($env as $key => $value) {
+            if ($variable == $key) {
+                $result = $value;
+                if (!empty($result)) {
+                    return $result;
+                }
+                break;
+            }
+        }
+        return '';
+    }
+}
